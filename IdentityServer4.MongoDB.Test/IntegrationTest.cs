@@ -1,7 +1,6 @@
 namespace IdentityServer4.MongoDB
 {
     using global::MongoDB.Driver;
-    using IdentityServer4.MongoDB.Database;
     using IdentityServer4.MongoDB.Options;
     using IdentityServer4.MongoDB.Test;
     using System;
@@ -10,7 +9,8 @@ namespace IdentityServer4.MongoDB
     /// <summary>
     /// Base class for integration tests, responsible for initializing test database providers & an xUnit class fixture
     /// </summary>
-    public class IntegrationTest<TStoreOption> : IClassFixture<MongoDatabaseFixture>
+    [Collection("MongoDbCollection")]
+    public class IntegrationTest<TStoreOption>
         where TStoreOption : BaseStoreOptions
     {
         protected readonly TStoreOption _storeOptions = Activator.CreateInstance<TStoreOption>();

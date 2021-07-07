@@ -2,7 +2,7 @@
 {
     using global::MongoDB.Driver;
     using global::MongoDB.Driver.Linq;
-    using IdentityServer4.Models;
+    using IdentityServer4.MongoDB.Entities;
     using IdentityServer4.Services;
     using Microsoft.Extensions.Logging;
     using System;
@@ -37,7 +37,7 @@
     /// </summary>
     public partial class CorsPolicyService : ICorsPolicyService
     {
-        private readonly IMongoCollection<Client> _context;
+        private readonly IMongoCollection<ClientEntity> _context;
         private readonly ILogger<CorsPolicyService> _logger;
 
         /// <summary>
@@ -46,7 +46,7 @@
         /// <param name="context">The context.</param>
         /// <param name="logger">The logger.</param>
         /// <exception cref="ArgumentNullException">context</exception>
-        public CorsPolicyService(IMongoCollection<Client> context, ILogger<CorsPolicyService> logger)
+        public CorsPolicyService(IMongoCollection<ClientEntity> context, ILogger<CorsPolicyService> logger)
         {
             _context = context;
             _logger = logger;
