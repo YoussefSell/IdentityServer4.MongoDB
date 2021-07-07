@@ -21,9 +21,6 @@ namespace IdentityServer4.MongoDB
         {
             _fixture = fixture;
 
-            PersistedGrantDatabaseAccessor.ConfigureMapping();
-            ConfigurationDatabaseAccessor.ConfigureMapping();
-
             var databaseName = string.Empty;
 
             if (typeof(TStoreOption) == typeof(ConfigurationStoreOptions))

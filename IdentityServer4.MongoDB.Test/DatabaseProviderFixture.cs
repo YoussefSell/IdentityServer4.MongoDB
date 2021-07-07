@@ -1,8 +1,9 @@
-﻿using Mongo2Go;
-using System;
-
-namespace IdentityServer4.MongoDB.Test
+﻿namespace IdentityServer4.MongoDB.Test
 {
+    using IdentityServer4.MongoDB.Database;
+    using Mongo2Go;
+    using System;
+
     public class MongoDatabaseFixture : IDisposable
     {
         public MongoDbRunner Runner => _runner;
@@ -11,6 +12,9 @@ namespace IdentityServer4.MongoDB.Test
         public MongoDatabaseFixture()
         {
             _runner = MongoDbRunner.Start();
+
+            PersistedGrantDatabaseAccessor.ConfigureMapping();
+            ConfigurationDatabaseAccessor.ConfigureMapping();
         }
 
         public void Dispose()

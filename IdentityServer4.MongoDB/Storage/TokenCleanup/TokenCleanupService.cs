@@ -17,7 +17,7 @@
     public class TokenCleanupService
     {
         private readonly OperationalStoreOptions _options;
-        private readonly IMongoCollection<PersistedGrant> _persistedGrantCollection;
+        private readonly IMongoCollection<PersistedGrantEntity> _persistedGrantCollection;
         private readonly IMongoCollection<DeviceCodeEntity> _deviceFlowCodesCollection;
         private readonly IOperationalStoreNotification _operationalStoreNotification;
         private readonly ILogger<TokenCleanupService> _logger;
@@ -32,7 +32,7 @@
         /// <param name="logger">the logger instance</param>
         public TokenCleanupService(
             OperationalStoreOptions options,
-            IMongoCollection<PersistedGrant> persistedGrantCollection,
+            IMongoCollection<PersistedGrantEntity> persistedGrantCollection,
             IMongoCollection<DeviceCodeEntity> deviceFlowCodesCollection,
             ILogger<TokenCleanupService> logger,
             IOperationalStoreNotification operationalStoreNotification = null)
