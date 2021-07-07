@@ -1,7 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>IdentityServer4.MongoDB</PackageId>
+    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+
+    <Description>MongoDB persistence layer for IdentityServer4</Description>
+    <Authors>Youssef Sellami</Authors>
+    <PackageTags>OAuth2;OAuth 2.0;OpenID Connect;Security;Identity;IdentityServer;EntityFramework</PackageTags>
+    <PackageProjectUrl>https://github.com/YoussefSell/IdentityServer4.MongoDB</PackageProjectUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageReleaseNotes>https://github.com/YoussefSell/IdentityServer4.MongoDB/releases</PackageReleaseNotes>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Version>1.0.0</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdentityServer4" Version="4.1.2" />
+    <PackageReference Include="MongoDB.Driver" Version="2.12.4" />
+  </ItemGroup>
 
 </Project>
