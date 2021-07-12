@@ -92,5 +92,66 @@
                 ShowInDiscoveryDocument = grant.ShowInDiscoveryDocument,
             };
         }
+
+        /// <summary>
+        /// convert the given <see cref="Client"/> to the an instance of <see cref="ClientEntity"/>
+        /// </summary>
+        /// <param name="client">the <see cref="Client"/> to be converted</param>
+        /// <returns>an instance of <see cref="ClientEntity"/></returns>
+        public static ClientEntity ToEntity(this Client client)
+        {
+            return new ClientEntity
+            {
+                Claims = client.Claims,
+                Enabled = client.Enabled,
+                LogoUri = client.LogoUri,
+                ClientId = client.ClientId,
+                ClientUri = client.ClientUri,
+                ClientName = client.ClientName,
+                Properties = client.Properties,
+                Description = client.Description,
+                RequirePkce = client.RequirePkce,
+                ProtocolType = client.ProtocolType,
+                UserCodeType = client.UserCodeType,
+                RedirectUris = client.RedirectUris,
+                IncludeJwtId = client.IncludeJwtId,
+                AllowedScopes = client.AllowedScopes,
+                ClientSecrets = client.ClientSecrets,
+                RequireConsent = client.RequireConsent,
+                UserSsoLifetime = client.UserSsoLifetime,
+                ConsentLifetime = client.ConsentLifetime,
+                AccessTokenType = client.AccessTokenType,
+                EnableLocalLogin = client.EnableLocalLogin,
+                AllowedGrantTypes = client.AllowedGrantTypes,
+                RefreshTokenUsage = client.RefreshTokenUsage,
+                DeviceCodeLifetime = client.DeviceCodeLifetime,
+                ClientClaimsPrefix = client.ClientClaimsPrefix,
+                AllowPlainTextPkce = client.AllowPlainTextPkce,
+                AllowOfflineAccess = client.AllowOfflineAccess,
+                AllowedCorsOrigins = client.AllowedCorsOrigins,
+                RequireClientSecret = client.RequireClientSecret,
+                PairWiseSubjectSalt = client.PairWiseSubjectSalt,
+                AccessTokenLifetime = client.AccessTokenLifetime,
+                RequireRequestObject = client.RequireRequestObject,
+                AllowRememberConsent = client.AllowRememberConsent,
+                BackChannelLogoutUri = client.BackChannelLogoutUri,
+                FrontChannelLogoutUri = client.FrontChannelLogoutUri,
+                IdentityTokenLifetime = client.IdentityTokenLifetime,
+                PostLogoutRedirectUris = client.PostLogoutRedirectUris,
+                AlwaysSendClientClaims = client.AlwaysSendClientClaims,
+                RefreshTokenExpiration = client.RefreshTokenExpiration,
+                AuthorizationCodeLifetime = client.AuthorizationCodeLifetime,
+                SlidingRefreshTokenLifetime = client.SlidingRefreshTokenLifetime,
+                AllowAccessTokensViaBrowser = client.AllowAccessTokensViaBrowser,
+                IdentityProviderRestrictions = client.IdentityProviderRestrictions,
+                AbsoluteRefreshTokenLifetime = client.AbsoluteRefreshTokenLifetime,
+                UpdateAccessTokenClaimsOnRefresh = client.UpdateAccessTokenClaimsOnRefresh,
+                BackChannelLogoutSessionRequired = client.BackChannelLogoutSessionRequired,
+                AlwaysIncludeUserClaimsInIdToken = client.AlwaysIncludeUserClaimsInIdToken,
+                FrontChannelLogoutSessionRequired = client.FrontChannelLogoutSessionRequired,
+                AllowedIdentityTokenSigningAlgorithms = client.AllowedIdentityTokenSigningAlgorithms,
+            };
+        }
+
     }
 }
