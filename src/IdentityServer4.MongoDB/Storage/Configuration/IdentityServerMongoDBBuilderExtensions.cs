@@ -14,6 +14,16 @@
         /// <summary>
         /// Adds configuration database to the DI system.
         /// </summary>
+        /// <param name="services">the services collection.</param>
+        /// <param name="databaseName">the name of the database to connect to.</param>
+        /// <param name="connectionString">the database connection string.</param>
+        /// <returns>instance of <see cref="IServiceCollection"/> to enable method chaining</returns>
+        public static IServiceCollection AddConfigurationDatabase(this IServiceCollection services, string databaseName, string connectionString)
+            => services.AddConfigurationDatabase(options => options.Connect(databaseName, connectionString));
+
+        /// <summary>
+        /// Adds configuration database to the DI system.
+        /// </summary>
         /// <param name="services">the services collection</param>
         /// <param name="storeOptionsAction">The store options action.</param>
         /// <returns>instance of <see cref="IServiceCollection"/> to enable method chaining</returns>
@@ -39,6 +49,16 @@
 
             return services;
         }
+
+        /// <summary>
+        /// Adds operational database to the DI system.
+        /// </summary>
+        /// <param name="services">the services collection</param>
+        /// <param name="databaseName">the name of the database to connect to.</param>
+        /// <param name="connectionString">the database connection string.</param>
+        /// <returns>instance of <see cref="IServiceCollection"/> to enable method chaining</returns>
+        public static IServiceCollection AddOperationalDatabase(this IServiceCollection services, string databaseName, string connectionString)
+            => services.AddOperationalDatabase(options => options.Connect(databaseName, connectionString));
 
         /// <summary>
         /// Adds operational database to the DI system.

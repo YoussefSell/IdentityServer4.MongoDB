@@ -17,6 +17,16 @@
         /// Configures MongoDb implementation of IClientStore, IResourceStore, and ICorsPolicyService with IdentityServer.
         /// </summary>
         /// <param name="builder">The builder.</param>
+        /// <param name="databaseName">the name of the database to connect to.</param>
+        /// <param name="connectionString">the database connection string.</param>
+        /// <returns></returns>
+        public static IIdentityServerBuilder AddConfigurationStore(this IIdentityServerBuilder builder, string databaseName, string connectionString)
+            => builder.AddConfigurationStore(options => options.Connect(databaseName, connectionString));
+
+        /// <summary>
+        /// Configures MongoDb implementation of IClientStore, IResourceStore, and ICorsPolicyService with IdentityServer.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
         /// <param name="storeOptionsAction">The store options action.</param>
         /// <returns></returns>
         public static IIdentityServerBuilder AddConfigurationStore(
@@ -49,6 +59,16 @@
 
             return builder;
         }
+
+        /// <summary>
+        /// Configures MongoDb implementation of IPersistedGrantStore with IdentityServer.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="databaseName">the name of the database to connect to.</param>
+        /// <param name="connectionString">the database connection string.</param>
+        /// <returns></returns>
+        public static IIdentityServerBuilder AddOperationalStore(this IIdentityServerBuilder builder, string databaseName, string connectionString)
+            => builder.AddOperationalStore(options => options.Connect(databaseName, connectionString));
 
         /// <summary>
         /// Configures MongoDb implementation of IPersistedGrantStore with IdentityServer.
