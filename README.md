@@ -4,7 +4,7 @@ IdentityServer4.MongoDB is a package that provides the Storage implementation on
 
 ## Quick setup
 
-to get started install the package using the Nuget package manager `Install-Package IdentityServer4.MongoDB`.
+to get started install the package using the Nuget package manager `Install-Package YoussefSell.IdentityServer4.MongoDB`.
 
 then add the following configuration to your IdentityServer4 registration:
 
