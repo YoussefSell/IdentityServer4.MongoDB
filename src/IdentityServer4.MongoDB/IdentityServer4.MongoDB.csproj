@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>IdentityServer4.MongoDB.Storage</PackageId>
+    <PackageId>YoussefSell.IdentityServer4.MongoDB</PackageId>
     <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
-
+    
+    <Title>IdentityServer4.MongoDB</Title>
     <Description>MongoDB persistence layer for IdentityServer4</Description>
     <Authors>Youssef Sellami</Authors>
     <PackageTags>OAuth2;OAuth 2.0;OpenID Connect;Security;Identity;IdentityServer;MongoDB</PackageTags>
