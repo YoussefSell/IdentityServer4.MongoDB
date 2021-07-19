@@ -1,40 +1,33 @@
-// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
-
-using IdentityServer4;
-using IdentityServer4.MongoDB.Entities;
-using IdentityServerHost.Quickstart.UI;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
-using MongoDB.Driver;
-using MongoDB.Driver.Linq;
-using System.Linq;
-
 namespace IdentityServer
 {
+    using IdentityServer4;
+    using IdentityServer4.MongoDB.Entities;
+    using IdentityServerHost.Quickstart.UI;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+    using Microsoft.IdentityModel.Tokens;
+    using MongoDB.Driver;
+    using MongoDB.Driver.Linq;
+    using System.Linq;
+
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            const string connectionString = @"mongodb://localhost:27017";
-            
-            var builder = services.AddIdentityServer()
-                .AddTestUsers(TestUsers.Users)
-                .AddConfigurationStore(options =>
-                {
-                    options.Connect("identityServer", connectionString);
-                })
-                .AddOperationalStore(options =>
-                {
-                    options.Connect("identityServer", connectionString);
-                });
 
-            builder.AddDeveloperSigningCredential();
+            const string databaseName = "identityServer";
+            const string connectionString = @"mongodb://localhost:27017";
+
+            services.AddIdentityServer()
+                .AddDeveloperSigningCredential()
+                .AddTestUsers(TestUsers.Users)
+                // add the operational store
+                .AddOperationalStore(databaseName, connectionString)
+                // add the configuration store
+                .AddConfigurationStore(databaseName, connectionString);
 
             services.AddAuthentication()
                 .AddGoogle("Google", options =>

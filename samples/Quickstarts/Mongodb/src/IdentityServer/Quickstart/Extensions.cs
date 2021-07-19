@@ -1,9 +1,9 @@
-using System;
-using IdentityServer4.Models;
-using Microsoft.AspNetCore.Mvc;
-
 namespace IdentityServerHost.Quickstart.UI
 {
+    using System;
+    using IdentityServer4.Models;
+    using Microsoft.AspNetCore.Mvc;
+
     public static class Extensions
     {
         /// <summary>

@@ -1,17 +1,12 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
-
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Serilog;
-using Serilog.Events;
-using Serilog.Sinks.SystemConsole.Themes;
-using System;
-using Microsoft.Extensions.Hosting;
-
-namespace IdentityServer
+﻿namespace IdentityServer
 {
+    using Microsoft.AspNetCore.Hosting;
+    using Serilog;
+    using Serilog.Events;
+    using Serilog.Sinks.SystemConsole.Themes;
+    using System;
+    using Microsoft.Extensions.Hosting;
+
     public class Program
     {
         public static int Main(string[] args)
@@ -23,13 +18,6 @@ namespace IdentityServer
                 .MinimumLevel.Override("System", LogEventLevel.Warning)
                 .MinimumLevel.Override("Microsoft.AspNetCore.Authentication", LogEventLevel.Information)
                 .Enrich.FromLogContext()
-                // uncomment to write to Azure diagnostics stream
-                //.WriteTo.File(
-                //    @"D:\home\LogFiles\Application\identityserver.txt",
-                //    fileSizeLimitBytes: 1_000_000,
-                //    rollOnFileSizeLimit: true,
-                //    shared: true,
-                //    flushToDiskInterval: TimeSpan.FromSeconds(1))
                 .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}", theme: AnsiConsoleTheme.Code)
                 .CreateLogger();
 
